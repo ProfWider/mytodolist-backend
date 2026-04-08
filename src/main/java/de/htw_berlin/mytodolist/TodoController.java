@@ -3,12 +3,20 @@ package de.htw_berlin.mytodolist;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class TodoController {
 
-    @GetMapping
-    public String test() {
-        return "Hello World";
+    @GetMapping("/todos")
+    public List<TodoEntry> getAllTodos() {
+        return List.of(
+                new TodoEntry("M1"),
+                new TodoEntry("M2"),
+                new TodoEntry("M3"),
+                new TodoEntry("M4"),
+                new TodoEntry("Projektpraesentation")
+        );
     }
 
 }
